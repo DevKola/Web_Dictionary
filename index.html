@@ -1,14 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Dictionary web app</title>
-</head>
-<body>
+    <!-- CSS -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
 
-</body>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <title>Frontend Mentor | Dictionary web app</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="body" id="body">
+    <header class="header">
+      <img src="./assets/images/logo.svg" alt="logo" class="header__img" />
+
+      <div class="header__controls">
+        <div class="custom-select">
+          <button
+            class="select-button"
+            role="combobox"
+            aria-labelledby="select button"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            aria-controls="select-dropdown"
+          >
+            <span class="selected-value">Sans Serif</span>
+            <span class="arrow">
+              <ion-icon name="chevron-down-outline" id="arrow"></ion-icon>
+            </span>
+          </button>
+          <ul class="select-dropdown" role="listbox" id="select-dropdown">
+            <li role="option">
+              <input type="radio" id="sans-serif" name="font" />
+              <label for="sans-serif"
+                ><i class="bx bxl-sans-serif"></i>Sans Serif</label
+              >
+            </li>
+            <li role="option">
+              <input type="radio" id="serif" name="font" />
+              <label for="serif"><i class="bx bxl-serif"></i>Serif</label>
+            </li>
+            <li role="option">
+              <input type="radio" id="mono" name="font" />
+              <label for="mono"><i class="bx bxl-mono-circle"></i>Mono</label>
+            </li>
+          </ul>
+        </div>
+
+        <div class="header__themes">
+          <div class="header__btn-themes" id="toggle-cont">
+            <div class="header__btn-toggle" id="toggle-btn"></div>
+          </div>
+          <img
+            src="./assets/images/icon-moon.svg"
+            alt="moon"
+            class="header__themes-img"
+            id="header-moon"
+          />
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus earum
+        in, dolorem cupiditate aperiam magnam pariatur dignissimos impedit
+        tenetur possimus voluptas velit atque quos? Voluptas suscipit
+        exercitationem labore placeat aliquid.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus earum
+        in, dolorem cupiditate aperiam magnam pariatur dignissimos impedit
+        tenetur possimus voluptas velit atque quos? Voluptas suscipit
+        exercitationem labore placeat aliquid.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus earum
+        in, dolorem cupiditate aperiam magnam pariatur dignissimos impedit
+        tenetur possimus voluptas velit atque quos? Voluptas suscipit
+        exercitationem labore placeat aliquid.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus earum
+        in, dolorem cupiditate aperiam magnam pariatur dignissimos impedit
+        tenetur possimus voluptas velit atque quos? Voluptas suscipit
+        exercitationem labore placeat aliquid.
+      </p>
+    </main>
+
+    <script src="./js/script.js"></script>
+  </body>
 </html>
