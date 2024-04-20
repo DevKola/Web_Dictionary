@@ -29,6 +29,13 @@ html {
     background-color: $--dark-theme;
     color: $--white-theme;
   }
+
+  font-family: sans-serif;
+}
+
+.container {
+  max-width: 80%;
+  margin: 0 auto;
 }
 
 .header {
@@ -100,7 +107,7 @@ html {
 // Selection
 .custom-select {
   position: relative;
-  width: 12rem;
+  width: 14rem;
   max-width: 100%;
   font-size: 1.15rem;
   color: #000;
@@ -184,6 +191,10 @@ html {
   transition: all 0.2s ease-out;
 }
 
+.option-dark {
+  color: $--white-theme;
+}
+
 .select-dropdown::-webkit-scrollbar {
   width: 7px;
 }
@@ -222,4 +233,46 @@ html {
   opacity: 1;
   visibility: visible;
   transform: scaleY(1);
+}
+
+// Search
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__box {
+    width: 95%;
+    height: 4rem;
+    border: 1px solid transparent;
+    background-color: $--light-grey-2;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease-out;
+    padding-left: 3rem;
+    font-size: 1.6rem;
+    font-weight: normal;
+    caret-color: $--primary-color;
+
+    &-dark {
+      background-color: $--dark-light-2;
+      color: $--white-theme;
+    }
+
+    &:hover {
+      width: 97%;
+    }
+
+    &:active,
+    &:focus {
+      border: 1px solid $--primary-color;
+      outline: 1px solid $--primary-color;
+    }
+  }
+
+  &__btn {
+    margin-left: -4rem;
+    border: 1px solid transparent;
+    background: none;
+    cursor: pointer;
+  }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -48,25 +48,27 @@
             aria-expanded="false"
             aria-controls="select-dropdown"
           >
-            <span class="selected-value">Sans Serif</span>
+            <span class="selected-value">sans-serif</span>
             <span class="arrow">
               <ion-icon name="chevron-down-outline" id="arrow"></ion-icon>
             </span>
           </button>
           <ul class="select-dropdown" role="listbox" id="select-dropdown">
-            <li role="option">
+            <li role="option" class="option">
               <input type="radio" id="sans-serif" name="font" />
               <label for="sans-serif"
-                ><i class="bx bxl-sans-serif"></i>Sans Serif</label
+                ><i class="bx bxl-sans-serif"></i>sans-serif</label
               >
             </li>
-            <li role="option">
+            <li role="option" class="option">
               <input type="radio" id="serif" name="font" />
-              <label for="serif"><i class="bx bxl-serif"></i>Serif</label>
+              <label for="serif"><i class="bx bxl-serif"></i>serif</label>
             </li>
-            <li role="option">
+            <li role="option" class="option">
               <input type="radio" id="mono" name="font" />
-              <label for="mono"><i class="bx bxl-mono-circle"></i>Mono</label>
+              <label for="mono"
+                ><i class="bx bxl-mono-circle"></i>Roboto Mono</label
+              >
             </li>
           </ul>
         </div>
@@ -86,6 +88,16 @@
     </header>
 
     <main>
+      <div class="container search">
+        <input type="text" class="search__box" id="search-box" />
+        <button class="search__btn" id="search-btn">
+          <img
+            src="./assets/images/icon-search.svg"
+            alt="Search"
+            class="search__btn-img"
+          />
+        </button>
+      </div>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus earum
         in, dolorem cupiditate aperiam magnam pariatur dignissimos impedit
