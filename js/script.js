@@ -72,13 +72,15 @@ optionsList.forEach((option) => {
   option.addEventListener("click", handler);
 });
 
+
 // Implement Search
 let wordData = [];
-let newWordData = [];
+let meanings = [];
+let phonetics = [];
 
-async function getWord(word) {
+async function getWord(input) {
   const res = await fetch(
-    `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
+    `https://api.dictionaryapi.dev/api/v2/entries/en/${input}`
   );
   const datas = await res.json();
   wordData = datas.map((data) => {
@@ -90,20 +92,29 @@ async function getWord(word) {
       source: data.sourceUrls,
     };
   });
+  const word = wordData[0].word;
+  const source = wordData[0].source;
+  const phonetic = wordData[0].phonetic;
 
-  if (wordData.length === 1) newWordData = wordData;
+  if (wordData.length === 1) {
+    meanings = wordData[0].meanings;
+  }
 
   for (let i = 0; i < wordData.length - 1; i++) {
-    if (
-      wordData[i].meanings.length > wordData[i + 1].meanings.length &&
-      wordData[i].phonetics.length > wordData[i + 1].phonetics.length
-    ) {
-      newWordData = wordData[i];
+    if (wordData[i].meanings.length > wordData[i + 1].meanings.length) {
+      meanings = wordData[i].meanings;
     }
   }
 
+  phonetics = wordData
+    .map((data) => data.phonetics)
+    .flat()
+    .filter((data) => data.audio);
+
   console.log(wordData);
-  console.log(newWordData);
+  console.log(meanings);
+  console.log(phonetics);
+  console.log(word, source, phonetic);
 }
 searchBtn.addEventListener("click", () => {
   getWord(searchBox.value);
