@@ -199,6 +199,8 @@ html {
     font-size: 4rem;
     text-transform: lowercase;
     color: #2d2d2d; }
+    .word__header-dark {
+      color: #ffffff; }
   .word__heading {
     display: flex;
     align-items: center;
@@ -228,11 +230,15 @@ html {
         color: #ffffff; }
       .word__heading-play-icon {
         color: #a445ed; }
+  .word__content-cont {
+    margin-bottom: 4rem; }
   .word__content-speech {
     font-size: 1.6rem;
     font-weight: 700;
     color: #2d2d2d;
-    position: relative; }
+    position: relative;
+    margin-bottom: 3rem;
+    font-style: italic; }
     .word__content-speech::after {
       content: "";
       width: 90%;
@@ -242,3 +248,33 @@ html {
       top: 50%;
       left: 8%;
       transform: translate(1%, -50%); }
+  .word__content-speech-dark {
+    color: #ffffff; }
+  .word__content-meaning {
+    font-size: 1.6rem;
+    color: #757575;
+    font-weight: 300;
+    margin-bottom: 2rem; }
+  .word__content-definitions {
+    padding-left: 4rem;
+    line-height: 1.9;
+    font-size: 1.4rem;
+    margin-bottom: 2rem; }
+  .word__content-definition::marker {
+    color: #a445ed; }
+  .word__content-alt {
+    font-size: 1.4rem;
+    color: #757575; }
+    .word__content-alt-dark {
+      color: #ffffff; }
+    .word__content-alt-text:not(:last-child) {
+      display: flex;
+      align-items: center;
+      gap: 1rem; }
+    .word__content-alt-text {
+      color: #a445ed;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s ease-out; }
+      .word__content-alt-text:hover {
+        text-decoration: underline; }

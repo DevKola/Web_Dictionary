@@ -8,6 +8,11 @@ const html = document.getElementById("html");
 const serif = document.getElementById("sans-serif");
 const searchBox = document.getElementById("search-box");
 const searchBtn = document.getElementById("search-btn");
+const wordHeader = document.getElementById("word-header");
+const wordSpeech = document.getElementById("word-content-speech");
+const wordAlt = document.getElementById("word-alt");
+const wordTranscribe = document.getElementById("word-transcribe");
+const content = document.getElementById("word-content");
 
 // Select
 const customSelect = document.querySelector(".custom-select");
@@ -28,6 +33,9 @@ function darkTheme() {
   selectedValue.classList.toggle("selected-value-dark");
   dropdown.classList.toggle("select-dropdown-dark");
   searchBox.classList.toggle("search__box-dark");
+  wordHeader.classList.toggle("word__header-dark");
+  wordSpeech.classList.toggle("word__content-speech-dark");
+  wordAlt.classList.toggle("word__content-alt-dark");
 
   optionsList.forEach((option) => {
     option.classList.toggle("option-dark");
@@ -72,10 +80,44 @@ optionsList.forEach((option) => {
   option.addEventListener("click", handler);
 });
 
+// Display ontent
+function display(word, phonetic, meanings) {
+  wordHeader.innerHTML = "";
+  wordTranscribe.innerHTML = "";
+  content.innerHTML = "";
+
+  wordHeader.innerText = `${word}`;
+  wordTranscribe.innerText = `${phonetic}`;
+
+  meanings.forEach((meaning) => {
+    content.innerHTML += `
+    <p class="word__content-speech" id="word-speech">${meaning.partOfSpeech}</p>
+
+    <div class="word__content-cont">
+      <p class="word__content-meaning">Meaning</p>
+
+      <ul class="word__content-definitions">
+        <li class="word__content-definition">
+          ${meaning.definitions.flatMap((el) => el.definition)}
+        </li>
+        
+      </ul>
+
+      <p class="word__content-alt" id="word-alt">
+        Synonyms:
+        <span class="word__content-alt-text">${meaning.synonyms.join(
+          ",  "
+        )}</span>
+      </p>
+    </div>
+    `;
+  });
+}
 
 // Implement Search
 let wordData = [];
 let meanings = [];
+let meaning = [];
 let phonetics = [];
 
 async function getWord(input) {
@@ -111,11 +153,30 @@ async function getWord(input) {
     .flat()
     .filter((data) => data.audio);
 
-  console.log(wordData);
+  meanings = meanings.map((data) => {
+    return {
+      definitions: data.definitions,
+      partOfSpeech: data.partOfSpeech,
+      synonyms: data.synonyms,
+      antonyms: data.antonyms,
+    };
+  });
+
   console.log(meanings);
-  console.log(phonetics);
-  console.log(word, source, phonetic);
+  meaning = meanings.map((item) => item.definitions);
+  // console.log(meanings.definitions.flatMap((el) => el.definition));
+  console.log(meaning);
+
+  display(word, phonetic, meanings);
 }
+
 searchBtn.addEventListener("click", () => {
-  getWord(searchBox.value);
+  if (searchBox.value === "") {
+    searchBox.style.border = "1px solid #ff5252";
+    searchBox.style.outline = "1px solid #ff5252";
+  } else if (searchBox.value !== "") {
+    searchBox.style.border = "1px solid #a445ed";
+    searchBox.style.outline = "1px solid #a445ed";
+    getWord(searchBox.value);
+  }
 });

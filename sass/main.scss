@@ -284,6 +284,10 @@ html {
     font-size: 4rem;
     text-transform: lowercase;
     color: $--dark-light-1;
+
+    &-dark {
+      color: $--white-theme;
+    }
   }
 
   &__heading {
@@ -330,11 +334,20 @@ html {
   }
 
   &__content {
+    &-cont {
+      margin-bottom: 4rem;
+    }
     &-speech {
       font-size: 1.6rem;
       font-weight: 700;
       color: $--dark-light-1;
       position: relative;
+      margin-bottom: 3rem;
+      font-style: italic;
+
+      // &-dark {
+      //   color: $--white-theme;
+      // }
 
       &::after {
         content: "";
@@ -346,6 +359,54 @@ html {
         top: 50%;
         left: 8%;
         transform: translate(1%, -50%);
+      }
+    }
+
+    &-speech-dark {
+      color: $--white-theme;
+    }
+
+    &-meaning {
+      font-size: 1.6rem;
+      color: $--deep-grey;
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+
+    &-definitions {
+      padding-left: 4rem;
+      line-height: 1.9;
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+    }
+
+    &-definition::marker {
+      color: $--primary-color;
+    }
+
+    &-alt {
+      font-size: 1.4rem;
+      color: $--deep-grey;
+
+      &-dark {
+        color: $--white-theme;
+      }
+
+      &-text:not(:last-child) {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      &-text {
+        color: $--primary-color;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.2s ease-out;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }
